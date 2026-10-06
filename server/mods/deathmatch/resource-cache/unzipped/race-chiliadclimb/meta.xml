@@ -1,0 +1,8 @@
+<meta>
+  <info type="map" gamemodes="race" name="Chiliad Climb" author="DominionSpy" version="1" />
+  <map src="Chiliad Climb.map" />
+  <settings>
+    <setting name="#respawn" value="timelimit" />
+    <setting name="#vehicle_physics_mode" value="fixed" />
+  </settings>
+</meta>

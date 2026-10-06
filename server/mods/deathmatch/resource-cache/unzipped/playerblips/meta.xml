@@ -1,0 +1,56 @@
+<meta>
+	<info name="Player Blips" author="Noki, jlillis" version="2.1.0" type="script" description="Attaches blips to players."/>
+	<min_mta_version server="1.6.0-9.22447"/>
+	<oop>true</oop>
+	<script src="server/main.lua" type="server"/>
+	<settings>
+		<setting
+			name="*use_team_colors"
+			value="false"
+			friendlyname="Use team colors"
+			group="Color settings"
+			accept="true,false"
+			desc="Use team colors for player blips."
+		/>
+		<setting
+			name="*use_nametag_colors"
+			value="true"
+			friendlyname="Use nametag colors"
+			group="Color settings"
+			accept="true,false"
+			desc="Use nametag colors for player blips. Takes precedence over team colors."
+		/>
+		<setting
+			name="*blip_color"
+			value="[[255, 255, 255]]"
+			friendlyname="Default blip color"
+			group="Color settings"
+			accept=""
+			desc="Default blip color. Used if team and nametag colors are not used."
+		/>
+		<setting
+			name="*blip_size"
+			value="2"
+			friendlyname="Blip size"
+			group="Blip settings"
+			accept="1-25"
+			desc="Player blip size."
+		/>
+		<setting
+			name="*blip_alpha"
+			value="255"
+			friendlyname="Blip transparency"
+			group="Blip settings"
+			accept="0-255"
+			desc="Player blip transparency."
+		/>
+		<setting
+			name="*blip_range"
+			value="16383"
+			friendlyname="Blip visibility range"
+			group="Blip settings"
+			accept="0-65535"
+			desc="Player blip visibility range on the minimap. Blips are always visible on the map."
+		/>
+	</settings>
+</meta>

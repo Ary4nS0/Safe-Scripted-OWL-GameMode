@@ -1,0 +1,32 @@
+<meta>
+	<info name="Deathmatch" author="Talidan, jlillis" version="2.0.2" type="gamemode" compatible-with="tdm" description="A raw deathmatch gamemode." edf:definition="edf/dm.edf" />
+
+	<!-- Required resources -->
+	<include resource="killmessages" />
+	<include resource="playercolors" />
+	<include resource="deathpickups" />
+	<include resource="spawnmanager" />
+	<include resource="mapmanager" />
+	<include resource="missiontimer" />
+	<include resource="scoreboard" />
+	<include resource="defaultstats" />
+
+	<!-- Shared files -->
+	<script src="shared/shared.lua" type="shared"/>
+
+	<!-- Server files -->
+	<script src="server/main.lua" />
+	<script src="server/player.lua" />
+	<script src="server/round.lua" />
+
+	<!-- Client files -->
+	<script src="client/lib/client_anim.lua" type="client" />
+	<script src="client/lib/textlib_anim.lua" type="client" />
+	<script src="client/lib/textlib.lua" type="client" />
+	<script src="client/main.lua" type="client" />
+	<script src="client/hud.lua" type="client" />
+	<script src="client/spectate.lua" type="client" />
+
+	<!-- EDF files -->
+	<file src="edf/spawnpoint.png" />
+</meta>

@@ -1,0 +1,1 @@
+triggerServerEvent("fake",localPlayer)

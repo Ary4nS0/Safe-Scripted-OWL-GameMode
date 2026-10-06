@@ -1,0 +1,31 @@
+<meta>
+    
+	
+	<script src="general.lua" type="server"/>
+	<script src="general.lua" type="client"/>
+	<export function="saveData" type="server" />
+	<export function="loadData" type="server" />
+	<export function="saveData" type="client" />
+	<export function="loadData" type="client" />
+
+
+	
+	<script src="report_s.lua" type="server"/>
+	<export function="saveReports" type="server" />
+	<export function="loadReports" type="server" />
+	
+	<script src="faction_drop_s.lua" type="server"/>
+	<export function="savePurchaseLogs" type="server" />
+	<export function="loadPurchaseLogs" type="server" />
+	
+	<script src="timestamp_c.lua" type="client"/>
+	<script src="timestamp_s.lua" type="server"/>
+	<export function="getServerTimestamp" type="shared" />
+	
+	<script src="json.lua" type="shared"/>
+	<export function="jsonGET" type="shared" />
+	<export function="jsonSAVE" type="shared" />
+	<export function="toJSON" type="shared" />
+	<export function="fromJSON" type="shared" />
+
+</meta>

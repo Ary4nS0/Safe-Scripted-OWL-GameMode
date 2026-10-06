@@ -1,0 +1,8 @@
+<meta>
+  <info type="map" gamemodes="race" name="Stunt" author="Aeron" description="Interior with stunt stuff" version="0" />
+  <map src="Stunt.map" />
+  <settings>
+    <setting name="#respawn" value="timelimit" />
+    <setting name="#vehicle_physics_mode" value="fixed" />
+  </settings>
+</meta>
