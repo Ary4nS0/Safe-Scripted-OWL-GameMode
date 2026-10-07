@@ -9,11 +9,11 @@
 
 local secretHandle = 'DwcbeZdBsd432Hcw2SvySv5FcW'
 
-Anti_Unknown_Data=true -- true : only elementData's exists in {list_datas} will allowed to recive from client
+Anti_Unknown_Data=true -- true : Only the elementData values that exist in {list_datas} are allowed to be received from the client
 
 
 
--- Events That Only Allowed To Get Called From ServerSide
+-- Events That Are Only Allowed to Be Called from the Server Side
 only_server_call={ 
     ["accounts:characters:list"]=true,
     ["accounts:options"]=true,
@@ -109,7 +109,7 @@ only_server_call={
     ["int:updatemarker"]=true,
     ["sellVehicle"]=true,
 }
---ElementDatas that allow to send from client side
+-- ElementDatas Allowed to Be Sent from the Client Side
 list_datas={
 	["streams"]={type="number",element="client",datas={1,0}},
 
