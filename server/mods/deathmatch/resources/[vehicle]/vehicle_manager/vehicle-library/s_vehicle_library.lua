@@ -25,7 +25,7 @@ addEventHandler("vehlib:refreshcarshops", getRootElement(), refreshCarShop)
 
 function sendLibraryToClient(receiver, ped)
 	if client and client ~= receiver then return end
-	if ped and not exports.global:isServerPed(ped) then 
+	if isElement(ped) and not exports.global:isServerPed(ped) then 
 		local name=getElementData(ped,"name")
 		local x,y,z=getElementPosition(ped)
 		if not exports.global:isValidPedName(name) then 
@@ -37,7 +37,7 @@ function sendLibraryToClient(receiver, ped)
 			return 
 		end
 	end
-	if ped and getElementType(ped)~='ped' then return end
+	if isElement(ped) and getElementType(ped)~='ped' then return end
 	local vehs = {}
 	local mQuery1 = nil
 	local preparedQ = "SELECT `spawnto`, `id`, `vehmtamodel`, `vehbrand`, `vehmodel`, `vehyear`, `vehprice`, `vehtax`, `vehicles_shop`.`createdby` AS 'createdby', `createdate`, `vehicles_shop`.`updatedby` AS 'updatedby', `updatedate`, `notes`, `enabled` FROM `vehicles_shop`"
