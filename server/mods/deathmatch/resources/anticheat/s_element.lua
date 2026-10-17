@@ -139,7 +139,7 @@ list_datas={
 				elseif k=="legs_up" and type(v)~="boolean"  then 
 					return false 
 				end
-			elseif type(ckecks[k])~="number" then 
+			elseif type(checks[k])~="number" then 
 				return false 
 			elseif checks[k]>0 then 
 				return false 
