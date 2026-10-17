@@ -1005,11 +1005,9 @@ end
 
 addEvent("fetchDutyInfo", true)
 addEventHandler("fetchDutyInfo", resourceRoot, function(factionID)
-	print(toJSON(getElementData(client , "faction")))
+
 	if not factionID then return  end
-	print('oomad2')
 	if not getElementData(client , "faction")[factionID] then return end
-	print('oomad3')
 	local elementInfo = getElementData(resourceRoot, "DutyGUI")
 	elementInfo[client] = factionID
 	setElementData(resourceRoot, "DutyGUI", elementInfo)
