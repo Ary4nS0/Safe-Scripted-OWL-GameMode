@@ -9,7 +9,7 @@
 
 addEvent( 'factions:fetchFactionList', true )
 addEventHandler( 'factions:fetchFactionList', resourceRoot, function ( )
-	if not exports.integration:isPlayerTrialAdmin( client ) and not exports.integration:isPlayerSupporter( client ) and not exports.integration:isPlayerScripter( client ) and not exports.integration:isPlayerFMTMember( client ) then return print("nabood") end
+	if not exports.integration:isPlayerTrialAdmin( client ) and not exports.integration:isPlayerSupporter( client ) and not exports.integration:isPlayerScripter( client ) and not exports.integration:isPlayerFMTMember( client ) then return end
 	dbQuery( function( qh, client )
 		local res, nums, id = dbPoll( qh, 0 )
 		local factions = { }
