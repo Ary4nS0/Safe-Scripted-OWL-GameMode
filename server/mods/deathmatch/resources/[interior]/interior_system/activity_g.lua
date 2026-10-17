@@ -35,7 +35,7 @@ function isActive(interiorElement)
 end
 
 function isProtected(interiorElement)
-	print(toJSON(debug.getinfo(2,"Sln")))
+	
 	local interiorStatus = getElementData(interiorElement, "status")
 	local interiorType = interiorStatus.type or 2
 	local interiorOwner = interiorStatus.owner or 0
