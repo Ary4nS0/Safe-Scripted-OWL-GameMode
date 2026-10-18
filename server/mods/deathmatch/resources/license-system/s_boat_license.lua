@@ -8,7 +8,9 @@ function giveBoatLicense(usingGC)
 			exports.hud:sendBottomNotification(client, "Department of Motor Vehicles", "Could not take GCs from your account. Reason: "..reason.."." )
 			return false
 		end
-	end	
+	else 
+		return --it will not work without buying becuase there is no theory test in GameMode. if you add test, you can change this part!!
+	end
 	
 	dbExec(exports.mysql:getConn('mta'), "UPDATE characters SET boat_license='1' WHERE id = ?", getElementData(client, 'dbid'))
 	exports.anticheat:changeProtectedElementDataEx(client, "license.boat", 1)
