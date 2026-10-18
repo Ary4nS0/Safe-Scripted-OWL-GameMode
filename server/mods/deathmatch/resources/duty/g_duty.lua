@@ -10,7 +10,7 @@ function createDutyColShape(posX, posY, posZ, size, interior, dimension, faction
 	   setElementInterior(tempShape, tonumber(interior) or 0)
 	   if tempShape then
     	   DutyColShapes[tonumber(factionID)][tonumber(locationID)] = tempShape
-    	   setElementData(resourceRoot, "DutyColShapes", DutyColShapes,false)
+    	   setElementData(resourceRoot, "DutyColShapes", DutyColShapes)
     	   return true
         end
     end
@@ -20,7 +20,7 @@ function destroyDutyColShape(factionID, locationID)
 	if DutyColShapes[tonumber(factionID)] and DutyColShapes[tonumber(factionID)][tonumber(locationID)] then
 		destroyElement(DutyColShapes[tonumber(factionID)][tonumber(locationID)])
 		DutyColShapes[tonumber(factionID)][tonumber(locationID)] = nil
-		setElementData(resourceRoot, "DutyColShapes", DutyColShapes,false)
+		setElementData(resourceRoot, "DutyColShapes", DutyColShapes)
 		return true
 	end
 end
