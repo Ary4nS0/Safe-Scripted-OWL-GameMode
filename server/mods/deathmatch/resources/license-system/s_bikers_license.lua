@@ -10,8 +10,10 @@ function giveBikeLicense(usingGC)
 			exports.hud:sendBottomNotification(client, "Department of Motor Vehicles", "Could not take GCs from your account. Reason: "..reason.."." )
 			return false
 		end
+	else 
+		if getElementData(client,'license.bike')~=3 then return end
+		if not getPedOccupiedVehicle(client) or not testBike[getElementModel(getPedOccupiedVehicle(client))] then return end
 	end
-	
 	local theVehicle = getPedOccupiedVehicle(client)
 	
 	exports.anticheat:changeProtectedElementDataEx(client, "realinvehicle", 0, false)
@@ -32,7 +34,17 @@ addEvent("acceptBikeLicense", true)
 addEventHandler("acceptBikeLicense", getRootElement(), giveBikeLicense)
 
 addEvent("theoryBikeComplete", true)
-addEventHandler("theoryBikeComplete", getRootElement(), function( skipSQL )
+addEventHandler("theoryBikeComplete", getRootElement(), function( answers,skipSQL )
+	if not answers or type(answers)~='table' then return end 
+	local check=0
+	for i,v in ipairs(questionsBike) do 
+		if answers[i]==v[5] then 
+			check=check+1  
+		end
+	end
+	local score=math.floor((check/#questions)*100)
+	if score<80 then return end
+
 	exports.anticheat:changeProtectedElementDataEx(client,"license.bike.cangetin",true, false)
 	exports.anticheat:changeProtectedElementDataEx(client,"license.bike",3) -- Set data to "theory passed"
 
@@ -55,7 +67,7 @@ function checkDoLBikes(player, seat)
 			end
 		elseif seat > 0 then
 			exports.hud:sendBottomNotification(player, "Department of Motor Vehicles", "This vehicle is for the Driving Test only." )
-			--cancelEvent()
+			cancelEvent()
 		else
 			exports.hud:sendBottomNotification(player, "Department of Motor Vehicles", "This vehicle is for the Driving Test only." )
 			cancelEvent()
