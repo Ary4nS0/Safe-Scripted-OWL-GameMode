@@ -1,5 +1,7 @@
 mysql = exports.mysql
 
+testVehicle = { [410]=true } 
+
 function giveCarLicense(usingGC)
 	if usingGC then
 		local perk = exports.donators:getPerks(22)
@@ -11,8 +13,9 @@ function giveCarLicense(usingGC)
 			return false
 		end
 	end
-	
+	if getElementData(client,'license.car')~=3 then return end
 	local theVehicle = getPedOccupiedVehicle(client)
+	if not theVehicle or not testVehicle[getElementModel(theVehicle)] then return end
 	exports.anticheat:changeProtectedElementDataEx(client, "realinvehicle", 0, false)
 	removePedFromVehicle(client)
 	if theVehicle then 
@@ -29,7 +32,17 @@ end
 addEvent("acceptCarLicense", true)
 addEventHandler("acceptCarLicense", getRootElement(), giveCarLicense)
 
-function passTheory( skipSQL )
+function passTheory( answers,skipSQL )
+	if not answers or type(answers)~='table' then return end 
+	local check=0
+	for i,v in ipairs(questions) do 
+		if answers[i]==v[5] then 
+			check=check+1  
+		end
+	end
+	local score=math.floor((check/#questions)*100)
+	if score<80 then return end
+
 	exports.anticheat:setEld( client, "license.car.cangetin", true, 'one' )
 	exports.anticheat:setEld( client, "license.car", 3, 'one' ) -- Set data to "theory passed"
 	if not skipSQL then
