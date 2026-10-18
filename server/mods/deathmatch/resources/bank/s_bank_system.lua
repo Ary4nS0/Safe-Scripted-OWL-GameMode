@@ -47,7 +47,7 @@ addEventHandler( "bank:showGeneralServiceGUI", getRootElement(), showGeneralServ
 
 function withdrawMoneyPersonal(amount)
 	local state = tonumber(getElementData(client, "loggedin")) or 0
-	if (state == 0) then
+	if (state == 0) or type(amount)~="number" or amount<0  then
 		return
 	end
 	
@@ -71,7 +71,7 @@ addEventHandler("withdrawMoneyPersonal", getRootElement(), withdrawMoneyPersonal
 
 function depositMoneyPersonal(amount)
 	local state = tonumber(getElementData(client, "loggedin")) or 0
-	if (state == 0) then
+	if (state == 0) or type(amount)~="number" or amount<0 then
 		return
 	end
 	if exports.global:takeMoney(client, amount, nil, true) then
@@ -90,7 +90,7 @@ addEventHandler("depositMoneyPersonal", getRootElement(), depositMoneyPersonal)
 
 function withdrawMoneyBusiness(amount, factionID)
 	local state = tonumber(getElementData(client, "loggedin")) or 0
-	if (state == 0) then
+	if (state == 0) or type(amount)~="number" or amount<0 then
 		return
 	end
 	
@@ -109,7 +109,7 @@ addEventHandler("withdrawMoneyBusiness", getRootElement(), withdrawMoneyBusiness
 
 function depositMoneyBusiness(amount, factionID)
 	local state = tonumber(getElementData(client, "loggedin")) or 0
-	if (state == 0) then
+	if (state == 0) or type(amount)~="number" or amount<0 then
 		return
 	end
 	if exports.global:takeMoney(client, amount) then
