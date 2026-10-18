@@ -1,4 +1,6 @@
 --MAXIME / 2015.1.10
+cooldown = 2000
+cooldown_players = {}
 local mysql = exports.mysql
 function sendOpm(username, msg, cost)
 	if not isElement( client ) then
@@ -23,9 +25,13 @@ function sendOpm(username, msg, cost)
 					return false
 				end
 			end
-			if makePlayerNotification(userid, "New private message from "..getElementData(client, "account:username"), msg, getElementData(client, "account:id")) then
+			if ((cooldown_players[client] and getTickCount()-cooldown_players[client]>=cooldown) or not cooldown_players[client] ) and  makePlayerNotification(userid, "New private message from "..getElementData(client, "account:username"), msg, getElementData(client, "account:id")) then
 				outputChatBox("Private message delivered to "..username, client, 0,255,0)
+				cooldown_players[client]=getTickCount()
 				return true
+			elseif getTickCount()-cooldown_players[client]<cooldown then 
+				outputChatBox("Please Wait a While..",client,255,0,0)
+				return false
 			else
 				return false
 			end
