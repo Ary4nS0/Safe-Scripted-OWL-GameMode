@@ -19,7 +19,8 @@ local NoQuestions = 10
 local NoQuestionToAnswer = 7
 local correctAnswers = 0
 local passPercent = 80
-		
+
+all_answers={}
 selection = {}
 
 -- functon makes the intro window for the quiz
@@ -117,6 +118,7 @@ function createLicenseQuestionWindow(number)
 					
 					-- if the selection is the same as the correct answer, increase correct answers by 1
 					if(selectedAnswer == selection[number][5]) then
+						all_answers[number]=selectedAnswer
 						correctAnswers = correctAnswers + 1
 					end
 				
@@ -154,6 +156,7 @@ function createLicenseQuestionWindow(number)
 					
 					-- if the selection is the same as the correct answer, increase correct answers by 1
 					if(selectedAnswer == selection[number][5]) then
+						all_answers[number]=selectedAnswer
 						correctAnswers = correctAnswers + 1
 					end
 				
@@ -437,7 +440,7 @@ local blip = nil
 local marker = nil
 
 function initiateDrivingTest()
-	triggerServerEvent("theoryComplete", resourceRoot)
+	triggerServerEvent("theoryComplete", resourceRoot,all_answers)
 	local x, y, z = testRoute[1][1], testRoute[1][2], testRoute[1][3]
 	blip = createBlip(x, y, z, 0, 2, 0, 255, 0, 255)
 	marker = createMarker(x, y, z, "checkpoint", 4, 0, 255, 0, 150) -- start marker.
