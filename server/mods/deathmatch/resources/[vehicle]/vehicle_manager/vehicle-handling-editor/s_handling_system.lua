@@ -439,20 +439,14 @@ function getInfoFromVehShopID(vehShopID)
 end
 
 function createTestVehicle(vehShopID, thePed, fromVehLib)
-	if not thePed or not isElement(thePed) or not getElementData(thePed, "carshop") then return end
-	if not exports.global:isServerPed(thePed) then 
-		local name=getElementData(thePed,"name")
-		local x,y,z=getElementPosition(thePed)
-		if not exports.global:isValidPedName(name) then 
-			if not isValidPedPosition(x,y,z) then 
-				return 
-			end
-		end
-		if not exports.global:isValidPedPosition(x,y,z) then 
-			return 
+	if thePed and getElementType(thePed)=="ped" and getElementData(thePed,"carshop") then 
+	
+		if exports.global:getDistanceBetweenElements(client,thePed)>7 then return end
+	else
+		if not exports.integration:isPlayerVehicleConsultant(client) and not exports.integration:isPlayerAdmin(client) then
+			return
 		end
 	end
-	if exports.global:getDistanceBetweenElements(client,thePed)>7 then return end
 	local vehShopData = getInfoFromVehShopID(vehShopID)
 	if not vehShopData then
 		outputDebugString("VEHICLE MANAGER / HANDLING / CREATE TEST VEHICLE / FAILED TO FETCH VEHSHOP DATA")
