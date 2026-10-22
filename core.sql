@@ -15,9 +15,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for core
-CREATE DATABASE IF NOT EXISTS `core` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
-USE `core`;
+
 
 -- Dumping structure for table core.account_loa
 CREATE TABLE IF NOT EXISTS `account_loa` (
