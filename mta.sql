@@ -15,9 +15,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for mta
-CREATE DATABASE IF NOT EXISTS `mta` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
-USE `mta`;
 
 -- Dumping structure for table mta.account_details
 CREATE TABLE IF NOT EXISTS `account_details` (
